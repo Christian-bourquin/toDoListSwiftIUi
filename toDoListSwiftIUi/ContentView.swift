@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+     @State private var textFieldEnter:String = ""
+    private var listings = [String]()
+    private var temp = ""
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+                TextField("enter task here", text: $textFieldEnter)
+            Button("enter task"){
+               temp = textFieldEnter
+           //     listings.append(textFieldEnter)
+            }
+            List {
+                ForEach(0..<listings.count) { each in
+                    Text(listings[each])
+                }
+            }
         }
         .padding()
     }
