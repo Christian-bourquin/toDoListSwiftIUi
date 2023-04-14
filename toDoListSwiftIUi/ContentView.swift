@@ -9,14 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
      @State private var textFieldEnter:String = ""
-    private var listings = [String]()
-    private var temp = ""
+   @State private var listings = [String]()
     var body: some View {
         VStack {
                 TextField("enter task here", text: $textFieldEnter)
             Button("enter task"){
-               temp = textFieldEnter
-           //     listings.append(textFieldEnter)
+              listings.append(textFieldEnter)
             }
             List {
                 ForEach(0..<listings.count) { each in
